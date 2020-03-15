@@ -1,0 +1,131 @@
+ <!DOCTYPE html>
+<html>
+    <head>
+        <title>AirKosova</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1">
+        <link rel="icon" href="Images/plane.png" />
+        <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
+        <link rel="stylesheet" href="CSS/rrethnesh.css" type="text/css" media="all">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    </head>  
+  <header>
+    <nav>
+        <a href="index.html"<div class="navbar-logo"></div></a>
+        <label for="toggle">&#9776;</label>
+        <input type="checkbox" id="toggle"/>
+        <div class="menu">
+            <a href="index.html">Kryefaqja</span></a>
+            <a href="oraret.html">Oraret</a>
+            <a href="rrethnesh.html"><span style="font-weight:bold; border-bottom: 3px solid; padding: 5px;">Info</a>
+            <a href="kontakti.html"><span>Kontakto</span></a>
+            <a href="loja.html"><span>Loja</span></a>
+
+        </div>
+    </nav>
+    </header>                    
+    <body>              
+      <h1><br /></h1>
+      <script>
+$(document).ready(function(){
+    $("#btn1").click(function(){
+        $("#p1").remove();
+    });
+});
+</script>
+  <div class="kutiatransparente">
+<p>
+Per secilin nga keto qytete mund te merrni informacione permes portalit online mbi:
+<ol class="c">
+	<li>Cmimet e biletave,</li>
+	<li>Orarin e pare te fluturimit,</li>
+</ol>
+<ol class="d">
+ 	<li>Hotelet,</li>
+ 	<li>Restaurantet,</li>
+	<li>Objektet e rendesishme historike qe mund t'i vizitoni gjate qendrimit.</li>
+</ol> </p></div>
+  <div class="kutiatransparente">
+        <div id="multiplebackground"> 
+<div id="local"></div>
+
+<script>
+if (typeof(Storage) !== "undefined") {
+    localStorage.setItem("sherbim", "Gjate udhetimeve me ne sherbeheni me");
+    document.getElementById("local").innerHTML = localStorage.getItem("sherbim");
+} else {
+    document.getElementById("local").innerHTML = "Na falni,mirepo shfletuesi juaj nuk e perkrah Web Storage-in...";
+}
+</script>
+<dl>
+  <dt>Pije te ndryshme</dt>
+  <dd>- kafe,qaj
+ <ul>
+ <li>qaj i gjeber</li>
+ <li>qaj i frutave te malit</li></ul>
+  dhe pije freskuese joalkoolike.</dd>
+  <dt>Ushqime te ndryshme</dt>
+  <dd>- fast food,fruta dhe qokollata.</dd>
+</dl></p>
+<br /><br />
+<button onclick="Func()">Gjetja e fjalës çaj</button>
+        <p id="demo1"></p>
+</div></div>
+  <div class="kutiatransparente">
+          <script>
+    function Func() {
+        var str = "Kafe, Çaj, çaj i gjelber çaj i frutave te malit";
+        var res = str.match(/çaj/ig);
+        document.getElementById("demo1").innerHTML = res;
+    }
+
+</script>
+
+<div class="kutiatransparente">
+<p style="text-align:center">Fakte te rendesishme rreth nesh!</p>
+<div class="fakte">
+Orari i punës - 24 orë.
+Sistemi i pistës-RWY 17/35, i aftë për të trajtuar avionët me A.C.N. vlerat deri në 65 R / C / W / T.
+RWY 17 / 35- 2500 metra.
+Avionët e arritur më parë: AN-124, IL62, DC-10F. VC-10, Il76, A321. B727, B737-800
+Kategoria e zjarrit 8 Instrumentet e uljes.
+ILS Cat 2.
+Asnjë mbingarkesë ATC.
+Kthesë e shpejtë për shkak të afërsisë së terminalit të qëndrimit të parkimit A / C.
+Dimensionet e aeroportit dhe informacionet e lidhura:
+Pika e referencës (WGS84),
+42 ° 34'22 "N,
+021 ° 02'09 "E.
+Lartësia e aerodromit dhe valëzimi i Geoid-it:
+545,4 metra.
+Elevimi i secilës prag dhe valëzimi i Geoid-it:
+RWY 17 - 545, 0 metra,
+RWY 35 - 544, 1 metra.
+Ngritja e pistës përfundon:
+RWY 17 - 545, 0 metra,
+RWY 35 - 544, 1 metra.
+Pikë të rëndësishme të larta dhe të ulëta përgjatë pistës:
+Lartë: Pragu i pistës 17 në 545 m,
+E ulët: 1.350 m nga pragu i pistës 17 në 540, 8 m.
+	</div>
+</div></div>
+      <div class="kutiatransparente"><p style="align:center; font-family: Arial, Helvetica, sans-serif;"><b>Audio te aeroplaneve tane:</b></p>
+              <audio controls>
+                <source src="audio/nisja.mp3">
+            </audio><br />     
+              <audio controls>
+                <source src="audio/aterimi.mp3">
+            </audio>
+        </div>
+<footer style="padding:8px;font-size:15px;font-weight:bold;text-align:center;background:Darkmagenta;color:white;font-family:"helvetica neue", sans-serif;letter-spacing:1px;">
+                    <p>Shperndajeni faqen tone:</p>
+    <img src="Images/email_32.png" alt="Dergojani dikujt ne Email"/>
+    <img src="Images/facebook_32.png" alt="Shperndajeni ne Facebook"/>
+    <img src="Images/twitter_32.png" alt="Shperndajeni ne Twitter"/>
+    <img src="Images/rss_32.png" alt="RSS"/>
+    <img src="Images/flickr_32.png" alt="Shperndajeni ne Flickr"/>
+    <p>Te gjitha te drejtat e rezervuara.</p>
+                   </footer>
+</body>
+</html>

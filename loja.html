@@ -1,0 +1,252 @@
+<!DOCTYPE HTML>  
+  
+<html>  
+  
+    <head>
+        <title>AirKosova</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1">
+        <link rel="icon" href="Images/plane.png" />
+        <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    </head>  
+  <header>
+    <nav>
+        <a href="index.html"<div class="navbar-logo"></div></a>
+        <label for="toggle">&#9776;</label>
+        <input type="checkbox" id="toggle"/>
+        <div class="menu">
+            <a href="index.html">Kryefaqja</span></a>
+            <a href="oraret.html">Oraret</a>
+            <a href="rrethnesh.html"><span style="font-weight:bold; border-bottom: 3px solid; padding: 5px;">Info</a>
+            <a href="kontakti.html"><span>Kontakto</span></a>
+            <a href="loja.html"><span>Loja</span></a>
+
+        </div>
+    </nav>
+    </header> 
+  
+    <title>Loja</title>  
+    <script type="text/javascript">
+     //onload perdoret ashtu qe ne momentin qe shfaqet nje faqe ekzekutohet nje Javascript i caktuar,ne kete rast onReady
+  window.onload = onReady;  
+  //deklarohen variablat qe na duhen gjate programit
+var can;  
+var ctx;          
+var img;  
+var klikoX;  
+var klikoY;  
+var selected1;  
+var selected2;       
+//variabla MadhesiaKatrorit eshte madhesia e katroreve te vegjel brenda puzzle
+//ne body kemi caktuar dimensionet e puzzle si width="800" height="600" qe do te thote se kemi 800/200=4 kolona dhe 600/200=3 rreshta me konkretisht kemi 4*3=12 katrora te vegjel
+var MadhesiaKatrorit   = 200;  
+var vektori = new Array();
+var vektoriKorrekt = new Array(); //ky vektor permban  radhitjen korrekte te copave te enigmes
+//deklarojme funksionin onReady qe eshte fuknsioni i pare qe ekzekutohet me rastin e ekzekutimit te faqes
+function onReady()  
+{  
+    can = document.getElementById('Canvas');  
+  //if deklarata perdoret per te kontrolluar mbeshtetjen e duhur te canvas ne shfletues.Eshte perjashtuar edhe shfletuesi Firefox sepse nuk mbeshtet disa pjese nga kodi qe do te perdorim me vone. Nese perdoruesi perdor Firefox ose ndonje shfletues tjeter qe nuk e perkrah canvas-in,do te shfaqet fotografia test10.
+//Pas kontrollit për mbështetjen e duhur të shfletuesit, marrim një referencë për një kontekst të renditjes 2d nga elementi ynë i kanavacës.
+    if(navigator.userAgent.toLowerCase().indexOf('firefox') >= 0 || !can.getContext)  
+    {  
+        can.style.display = 'none';  
+        document.getElementById('sorry').style.display = 'inline';  
+        return;  
+    }  
+  //fotografia e cila do te paraqitet nese canvas elementi perkrahet nga shfletuesi eshte puzzle.jpg
+    ctx= can.getContext('2d');            
+    img = new Image();  
+    img.onload = onImageLoad;  
+    img.src    = "Images/puzzle.jpg";           
+}  
+//
+function onImageLoad()  
+{  
+//Permes ketij funksioni duke e perdorur unazen for dhe duke e ditur se kemi 4 kolona dhe 3 rreshta e krijojme fotografine komplete
+    var d;  
+    for(var i = 0; i < 4; i++)  
+    {  
+        for(var j = 0; j < 3; j++)  
+        {  
+            d = new Drejtekendeshi(i * MadhesiaKatrorit, j * MadhesiaKatrorit, i*MadhesiaKatrorit + MadhesiaKatrorit, j * MadhesiaKatrorit + MadhesiaKatrorit);  
+            vektori.push(d); 
+              vektoriKorrekt.push(d); 
+        }                 
+    }  
+//keto funksione do te krijohen me vone
+    riorganizoVektorin(vektori, 30);  
+    drawImage();  
+} 
+
+function Drejtekendeshi(left, top, right, bottom)  
+{  
+    //ketu fillimisht kemi dhene vetite left,top,right dhe bottom dhe pastaj permes tyre kemi llogaritur gjeresine dhe gjatesine e drejtekendeshit
+    this.left = left;  
+    this.top  = top;  
+    this.right = right;  
+    this.bottom = bottom;  
+              
+    this.width = right - left;  
+    this.height = bottom - top;  
+} 
+function riorganizoVektorin(ar, times)  
+{  
+    //Duhen dy parametra: i pari është katrori qe duam t'ja ndryshojme vendin dhe i dyti eshte katrori me te cilin duam t'ja ndryshojme vendin atij te parit. Duhet te deklarojme disa variabla, duke përfshirë edhe numeratorin qe starton prej vleres 0. Me pas deklarojme nje unaze while. Në këtë unaze marrim dy indekse të rastësishme dhe ne i ndërrojmë ato. Në rastin tonë, unaza do të kryejë 30 këmbime, sepse kur e kemi thirrur funksionin me lart, ne funksionin onImage1load ja kemi dhene vleren times=30.
+    var numeratori = 0;  
+    var temp;  
+    var indeksi1;  
+    var indeksi2;  
+  
+    while(numeratori < times)  
+    {  
+        indeksi1 = Math.floor(Math.random()*vektori.length);  
+        indeksi2 = Math.floor(Math.random()*vektori.length);  
+                  
+        temp = vektori[indeksi1];  
+        vektori[indeksi1] = vektori[indeksi2];  
+        vektori[indeksi2] = temp;  
+                  
+        numeratori++;  
+    }  
+} 
+function drawImage()  
+{  
+    //vazhdojme perseri neper te gjitha kolonat dhe rreshtat e fotografise sone.Duke perdorur formulen: kolona * numrirreshtave + rreshti i marrim te gjitha pjeset e enigmes nga variabla vektori. Pastaj i themi ctx për të mbushur enigmen. Funksioni i drawImage i kontekstit merr disa parametra.Parametri i pare eshte fotografia prej se ciles do te marrim pjeset. Dy të ardhshmet janë koordinatat x dhe y të imazhit burimor e ne fund gjerësia dhe lartësia e enigmes qe do te krijojme.
+    var d;  
+    for(var i = 0; i < 4; i++)  
+    {  
+        for(var j = 0; j < 3; j++)  
+        {  
+            d = vektori[i*3+j];                   
+            ctx.drawImage(img, d.left, d.top, d.width, d.height, i*MadhesiaKatrorit, j*MadhesiaKatrorit, MadhesiaKatrorit, MadhesiaKatrorit);  
+        }  
+    }  
+} 
+function highlightRect(drawX, drawY)  
+{  
+    //Funksioni i pare, highlightRect, do te vizatoje nje kufi te theksuar rreth copes se enigmes qe aktualisht perdoruesi ka zgjedhur. Kjo metode ka dy parametra: drawX dhe drawY.
+    ctx.beginPath();  
+    ctx.moveTo(drawX, drawY);  
+    ctx.lineTo(drawX + MadhesiaKatrorit, drawY);  
+    ctx.lineTo(drawX + MadhesiaKatrorit, drawY + MadhesiaKatrorit);  
+    ctx.lineTo(drawX, drawY + MadhesiaKatrorit);  
+    ctx.lineTo(drawX, drawY);  
+    ctx.lineWidth = 2;  
+  
+//percaktimi i ngjyres qe e rrethon copen e zgjedhur
+    ctx.strokeStyle = "#ff0000";  
+    ctx.stroke();  
+}  
+//funksioni per te gjetur nese keni plotesuar apo ende jo enigmen dmth per te shikuar nese vektori perputhet me vektorin e renditjes korrekte te pjeseve
+
+function perputhja()  
+{  
+    var match = true;  
+              
+    for(var i = 0; i < vektori.length; i++)  
+    {  
+        if(vektori[i] != vektoriKorrekt[i])  
+        {  
+            match = false;  
+        }  
+    }  
+      //nese dy vektoret ne fjale perputhen shtyp ne konzole Enigma u plotesua    
+    if(match)  
+    {  
+        console.log('Urime!Enigma u plotesua!');  
+    }  
+    //perndryshe shtyp paplotesuar
+    else  
+    {  
+        console.log('paplotesuar');  
+    }  
+    //p.s per te pare rezultatin e logs ne Chrome shtyp F12 dhe pastaj kliko console tab nese nuk hapet by default
+
+}
+          
+function swapRects(r1, r2)  
+{  
+    //Ky funksion merr dy drejtkendesha perkatesisht copeza te enigmes dhe zevendeson poziten e tyre ne vektor.Ky është çelesi i lojes tone. Perdoruesi se pari do te klikoje nje pjese dhe pastaj do te klikoje nje tjeter per t'ua nderruar vendet me te parin.
+    var indeksi1;  
+    var indeksi2;  
+    var temp = r1;  
+              
+    indeksi1 = vektori.indexOf(r1);  
+    indeksi2 = vektori.indexOf(r2);  
+              
+    vektori[indeksi1] = r2;  
+    vektori[indeksi2] = temp; 
+
+    perputhja();          
+}  
+function onCanvasClick(evt)  
+{  
+
+    //Funksioni merr nje parameter:pjesen qe eshte klikuar. Gjeja e pare qe bejme eshte te gjejme pozicionin x dhe y duke perdorur evt.offsetX dhe evt.offsetY. Vlera e offset na jep koordinatat x dhe y te klikimit te miut.Pastaj, ne pjesetojme pozicionin e klikimit me MadhesiaKatrorit per te na ndihmuar te llogarisim indeksin e pjeses se klikuar. Sapo te kemi llogaritur indeksin (kolona * numRows + rresht), ne marrim copen e klikuar dhe ate vlere ja japim variables lokale targetRect. Variabli i fundit eshte boolean qe na tregon nese do te vizatojme nje highlight rreth pjeses se klikuar; e qe eshte marre si i vertete by default. Pasi te kemi percaktuar indeksin,shumefishojme variablat drawX dhe drawY nga blockSize per te marre koordinatat aktuale piksele te pjeses se klikuar te enigmes.
+
+    klikoX = evt.offsetX;  
+    klikoY = evt.offsetY;  
+              
+    var drawX         = Math.floor(klikoX / MadhesiaKatrorit);  
+    var drawY         = Math.floor(klikoY / MadhesiaKatrorit);           
+    var index         = drawX * 3 + drawY;            
+    var targetRect    = vektori[index];  
+    var drawHighlight = true;  
+   
+    drawX *= MadhesiaKatrorit;  
+    drawY *= MadhesiaKatrorit;  
+              
+    ctx.clearRect(0, 0, 800, 600);  
+              
+
+    //Tjetra ne kontrollojmë nëse selected1 është i padefinuar. Nëse është, kjo do të thotë që ky klikim është zgjedhja e parë e përdoruesit për këtë raund, prandaj ja japim vleren e pjeses se selektuar variables selected1. Nëse selected1 nuk është i padefinuar, kjo do të thotë që përdoruesi tashmë ka zgjedhur një copë për të lëvizur, kështu që ne e dimë se pjesa që perdoruesi sapo ka klikuar është pjesa me të cilen deshiron t'ia nderroje pozicionin pjeses se pare. Në këtë rast,ja japim vleren e pjeses se klikuar variables selected2 dhe pastaj e therrasim funksionin swapRects që e kemi krijuar më herët.Kjo metode do ua nderroje vendet dy pjeseve te klikuara te enigmes dhe meqe te dy pjeset jane duke shkembyer vende, ne nuk kemi nevojë të perdorim highlight, prandaj variables drawHighlight i eshte dhene vlera false.
+    if(selected1 != undefined && selected2 != undefined)  
+    {  
+        selected1 = selected2 = undefined;  
+    }  
+              
+    if(selected1 == undefined)  
+    {  
+        selected1 = targetRect;  
+    }  
+    else  
+    {  
+        selected2 = targetRect;  
+        swapRects(selected1, selected2);  
+        drawHighlight = false;  
+    }  
+        
+    //Pasi të kemi përcaktuar se cilat pjesë janë zgjedhur dhe kemi bere ndonje ndryshim te nevojshem, e riformojme imazhin duke e thirrur funksionin drawImage.Pjesa e fundit e kodeve kontrollon për te parë nëse duhet të vizatojme highlight ose jo. Nese duhet te vizatojme atehere e therrasim funksionin highlightRect dhe e zbatojme ne koordinatat X dhe Y.  
+
+    drawImage();  
+              
+    if(drawHighlight)     
+        highlightRect(drawX, drawY);  
+}  
+    </script>  
+  
+</head>  
+  
+<body style="background-color:#000000;" >  
+
+    <!--Ketu kemi vetem nje heading dhe nje div element te thjeshte brenda te cilit e kemi vendosur fotografine e cila do te jete pjese e puzzle-it 
+        dhe nje canvas tag-->
+
+  <h1 style="color:#ffffff;font-family:'Lucida Console', Monaco, monospace;font-size:30px;text-align:center">ENIGMA-HTML5</h1>
+    <div style="margin:0 auto; width:800px; height:600px; border: 4px solid #ffffff;">  
+          
+          <!-- Kjo fotografi do te shfaqet edhe nese shfletuesi i perdoruesit nuk e perkrah HTML5,mirepo ne permes vetise display (display:none) e kemi nderruar ashtu qe ne rast te tille nuk shfaqet fare fotografia.-->
+        <img id="test10" src="test10.jpg" style="display:none;"/>  
+          
+          <!--Canvas-it i japim nje id Canvas keshtu qe ne do te jemi ne gjendje te manipulojme me te ne pjesen e javascript.Gjithashtu e perdorim nje funksion onclick-->
+       <canvas id="Canvas" width="800" height="600" onclick="onCanvasClick(event);">  
+       </canvas>  
+      
+    </div>  
+  
+</body>  
+  
+</html> 

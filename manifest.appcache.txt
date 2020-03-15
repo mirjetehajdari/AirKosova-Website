@@ -1,0 +1,24 @@
+CACHE MANIFEST
+
+
+CACHE:
+index.html
+kontakti.html
+loja.html
+oraret.html
+planifikimi.html
+rrethnesh.html
+kontakti.css
+rezervo.css
+rrethnesh.css
+style.css
+tabela.css
+planifikimi_js.js
+
+
+FALLBACK:
+
+/ /offline.html
+
+NETWORK:
+*

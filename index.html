@@ -1,0 +1,393 @@
+﻿<html>
+    <style>
+        html
+      
+  {
+            background-color: #ececec;
+       
+ }
+    </style>
+    <head>
+        <title>AirKosova</title>
+        <meta charset="UTF-8">
+      
+  <meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1">
+    
+    <link rel="icon" href="Images/plane.png" />
+        <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
+   
+
+     <link rel="stylesheet" href="css/rezervo.css" type="text/css" media="all">
+   
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+   
+    </head>
+    
+    <!-- Header fillon ketu -->
+    
+    
+    <header>
+    <nav>
+        <a href="index.html"<div class="navbar-logo"></div></a>
+        <label for="toggle">&#9776;</label>
+        <input type="checkbox" id="toggle"/>
+        <div class="menu">
+            <a href="index.html"><span style="font-weight:bold; border-bottom: 3px solid; padding: 5px;">Kryefaqja</span></a>
+            <a href="oraret.html">Oraret</a>
+			<a href="rrethnesh.html">Info</a>
+     <a href="kontakti.html"><span>Kontakto</span></a>
+	 <a href="loja.html">Loja</a>
+        </div>
+  
+         
+    </nav>
+    </header>
+        <!-- Header mbaron ketu -->
+        <!-- b0dy fillon ketu -->
+    <body>
+        <article>
+            <section>
+            <div class="fotoja-kryesore">
+                    <div class="rezervimMbajtesi">
+                    
+
+                    <div class="rezervimi">
+                        <h1 align="center" style="color:#fff;"> Kerko Fluturime </h1>
+					<input type="radio" name="rezervimi" id="fluturim" value=""><label for="fluturim" id="expand-btn" style="float:left; font-size: 15px; line-height: 20px; width:50%; margin:0;">Fluturim</label>
+					<input type="radio" name="rezervimi" id="hotel" value="" checked><label for="hotel" id="expand-btn" style="float:left; font-size: 15px; line-height: 20px; width:50%; margin:0;">Fluturim + Hotel</label>
+					<br>
+					<input type="radio" name="bileta" id="njedrejtim" value=""><label for="njedrejtim" id="expandd-btn" style="float:left; font-size: 15px; line-height: 20px; width:50%; margin:0;">Nje Drejtim</label>
+					<input type="radio" name="bileta" id="dydrejtime" value="" checked><label for="dydrejtime" id="expandd-btn" style="float:left; font-size: 15px; line-height: 20px; width:50%; margin:0;">Dy Drejtime</label>
+			<table>		
+    <tr>
+	<td>Vendi i nisjes:</td><td>Vendi i mberritjes</td>
+	</tr>
+	<tr>
+	<td>
+                                <select name="Nga" >
+                                    <option value="" disabled selected>Nga</option>
+                                    <option>Ankara</option>
+                                    <option>Bern</option>
+                                    <option>Oslo</option>
+                                    <option>Toronto</option>
+                                    <option>Sidni</option>
+                                    <option>Stokholm</option>
+                                    <option>Berlin</option>
+                                    <option>Tokio</option>
+                                    <option>Lisbone</option>
+                                    <option>Bruksel</option>
+                                    <option>New York</option>
+                                    <option>Orlando</option>
+                                    <option>Stamboll</option>
+                                    <option>Londer</option>
+                                    <option>Madrid</option>
+                                    <option>Paris</option>
+                                    <option>Moske</option>
+                                    <option>Linz</option>
+                                </select> 
+                            </td>
+                            <td>
+                                <select name="Ne">
+                                    <option value="" disabled selected>N&euml;</option>
+                                    <option>Ankara</option>
+                                    <option>Bern</option>
+                                    <option>Oslo</option>
+                                    <option>Toronto</option>
+                                    <option>Sidni</option>
+                                    <option>Stokholm</option>
+                                    <option>Berlin</option>
+                                    <option>Tokio</option>
+                                    <option>Lisbone</option>
+                                    <option>Bruksel</option>
+                                    <option>New York</option>
+                                    <option>Orlando</option>
+                                    <option>Stamboll</option>
+                                    <option>Londer</option>
+                                    <option>Madrid</option>
+                                    <option>Paris</option>
+                                    <option>Moske</option>
+                                    <option>Linz</option>
+                                </select> 
+                            </td>
+							</tr>
+							<tr>
+                            <td>Data e nisjes</td>
+							<td class="kthim">Data e kthimit</td>
+							</tr>
+							<tr>
+                            <td><input type="date" name="data-e-nisjes" min="2018-01-01"></td>
+							<td class="kthim"><input type="date" name="data-e-kthimit" min="2018-01-01"></td>
+							</tr>
+							<tr>
+							<td>Te rritur(+18)</td>
+							<td>Femije(0-17)</td>
+							</tr>
+							<tr>
+                            <td>
+                                <input type="number" name="numri-i-rriturve" placeholder="0" min="1" max="10">
+                            </td>
+                            <td>
+                                <input type="number" name="numri-i-femijve" placeholder="0" min="0" max="10" step="2">
+                            </td>
+							</tr>
+							<tr class="fluturim">
+							<td>Klasi i preferuar</td>
+							<td>Dhomat</td>
+							</tr>
+							<tr class="fluturim">
+							<td><select name="Ne">
+							<option value="" disabled selected>Klasi</option>
+							<option>Klasi ekonomik</option>
+							<option>Klasi biznes</option>
+							<option>Klasi i pare</option>
+							</select></td>
+							<td>
+							<input type="number" name="dhomat" placeholder="0" min="1" max="10">
+							</td>
+							</tr>
+							<tr class="fluturim">
+                            <td>Check-in: </td>
+							<td>Check-out: </td>
+							</tr>
+							<tr class="fluturim">
+                            <td><input type="date" name="data-e-rezervimit-te-hotelit" min="2018-01-01"></td>
+							<td class="fluturim"><input type="date" name="data-e-mbarimit-te-rezervimit" min="2018-01-01"></td>
+							</tr>
+							<tr>
+                            <td colspan="2">
+                                <input type="button" class="button" onclick="alert('Rezervimi juaj &euml;sht&euml; kryer me sukses!')" value="Rezervo">
+                            </td>
+                            </tr>
+	</table>
+	</div>
+                        
+ 
+
+                </div>
+                <div id="divider"></div>
+                <div id="bllok2"></div>
+                <br>
+                <br>
+
+                   </section>
+            <section>
+                   <p align="center" style="color:darkmagenta">
+    <tab><img style="width:40px; height:40px; padding: 5px" align="middle" src="Images/tick.svg" alt="Tick">Kërko <strong>qindra fluturime, hotele, vende turistike,</strong> dhe më shumë!</tab>
+                       <img style="width:40px; height:40px; padding: 5px" align="middle" src="Images/tick.svg" alt="Tick"><strong>Asnje tarife</strong> per te anuluar ose ndryshuar qfardo rezervimi te fluturimit!
+                   </p>
+                   <div class="whitespace"></div>
+            </section>
+                   
+<div class="wrapPrice" style="margin: 0px 0px 530px 0px">
+                   <div class="columns">
+  <ul class="price">
+    <li class="header" style="background-color: #aed6f1">Klasi Ekonomik</li>
+    <li class="grey">Duke filluar nga 100€</li>
+    <li>Bagazh (20 kg)</li>
+    <li>Kontrollim normal</li>
+    <li>Nuk ka qasje ne internet</li>
+    <li>Ushqim nga Menu-ja</li>
+    <li class="grey"><a href="#" class="buttonPriceTable">Rezervo</a></li>
+  </ul>
+</div>
+
+<div class="columns">
+  <ul class="price">
+    <li class="header" style="background-color:  #3498db ">Klasi Biznes</li>
+    <li class="grey">Duke filluar nga 1000€</li>
+    <li>Bagazh ekstra</li>
+    <li>Kontrollim i shpejte</li>
+    <li>Internet 2G</li>
+    <li>Hyrje ne biznes lounge </li>
+    <li class="grey"><a href="#" class="buttonPriceTable">Rezervo</a></li>
+  </ul>
+</div>
+
+<div class="columns">
+  <ul class="price">
+    <li class="header" style="background-color:  #21618c ;">Klasi i pare (VIP)</li>
+    <li class="grey">Duke filluar nga 5000€</li>
+    <li>Bagazh pa limit</li>
+    <li>Kontrollim ekskluziv</li>
+    <li>Internet pa limit</li>
+    <li>Hyrje ne VIP Lounge</li>
+    <li class="grey"><a href="#" class="buttonPriceTable">Rezervo</a></li>
+  </ul>
+</div>
+</div>
+      <section>
+
+
+                   <p align="center" style="color: darkmagenta; font-size: 25px; ">Me poshte mund te shihni <strong>aeroportin</strong> dhe <strong>interierin e aeroplaneve tane</strong>.</p>
+	                   <div class="whitespace"></div>
+
+                   <div class="container">
+		<div class="gallery">
+			 <a  href="Images/1.jpg">
+                             <img src="Images/1.jpg" width="700px" height="250px"></a>
+		</div>
+		<div class="gallery">
+			 <a  href="Images/4.jpg">
+                             <img src="Images/4.jpg" width="700px" height="250px"></a>
+		</div>
+		<div class="gallery">
+			 <a  href="Images/3.jpg">
+                             <img src="Images/3.jpg" width="700px" height="250px"></a>
+		</div>
+		<div class="gallery">
+			 <a  href="Images/2.jpg">
+                             <img src="Images/2.jpg" width="700px" height="250px"></a>
+		</div>
+		<div class="gallery">
+			 <a  href="Images/5.jpg">
+                             <img src="Images/5.jpg" width="700px" height="250px"></a>
+		</div>
+		<div class="gallery">
+			 <a  href="Images/6.jpg">
+                             <img src="Images/6.jpg" width="700px" height="250px"></a>
+		</div>
+		<div class="gallery">
+			 <a  href="Images/7.jpg">
+                             <img src="Images/7.jpg" width="700px" height="250px"></a>
+		</div>
+		<div class="gallery">
+			 <a  href="Images/8.jpg">
+                             <img src="Images/8.jpg" width="700px" height="250px">
+                         </a>
+		</div>
+	</div>
+            </section>
+<section>
+                <script>
+                $("document").ready(function(){
+                $(".gradient input").focus(function(){
+                    $(this).css("background-color", "lightgray");
+                });
+                $(".gradient input").blur(function(){
+                    $(this).css("background-color", "white");
+                });
+                $("#kerkesa").hover(function(){
+                    alert("Keni kujdes , shkruani passwordin e sakte, kerkesa nuk mund te behet me shume se 1 here!")
+                });
+                        
+            });
+        </script>
+        <div class="whitespace"></div>
+        <script>
+            $(document).ready(function(){
+    $("#fsheh").click(function(){
+        $("#gradientin").slideUp("slow");
+    });
+    $("#shfaq").click(function(){
+        $("#gradientin").slideDown("slow");
+    });
+});
+            </script>
+        <div class="gradient" align="center" style="font-size: 20px;" width="50%"> <strong id="fsheh" style="cursor:pointer;">Fsheh / </strong><strong id="shfaq" style="cursor:pointer;">Shfaq</strong></div>
+   <form  method="post">
+
+        <div class="gradient" id="gradientin">
+ <table>
+  <tr>
+    <td colspan="2"><p id="kerkesa" style="color:white;">Nese deshironi te informoheni permes email-it mbi oraret tona te fluturimit ju lutemi plotesoni pyetjet e meposhtme!</p></td>
+    </tr>
+  <tr>
+    <td>Emri: </td>
+    <td>
+      <input id="emri" type="text" name="emri" size="50" placeholder="Jepni emrin tuaj...">
+    </td>
+  </tr>
+  <tr>
+    <td>Mbiemri: </td>
+    <td>
+      <input id="mbiemri" type="text" name="mbiemri" size="50" placeholder="Jepni mbiemrin tuaj...">
+    </td>
+  </tr>
+  <tr>
+    <td>Email-i: </td>
+    <td><input id="email" type="text" name="email-i" size="50" placeholder="Jepni email-in tuaj...">
+    </td>
+  </tr>
+  <tr>
+    <td>Fjalekalimi: </td>
+    <td>
+      <input id="passwordi" type="password" name="fjalekalimi" size="50" placeholder="Jepni fjalekalimin tuaj...">
+    </td>
+  </tr>
+ <tr><td colspan="2">
+  <input style="cursor: pointer;" type="submit" onclick="f()" value="Bej kerkesen" >
+</td>
+</tr>
+</table></div>
+</form>
+        <div class="whitespace"></div>
+
+</section>
+            </article>
+        <script type="text/javascript">
+            function f() {
+                var myTextField = document.getElementById('email');
+                var password = document.getElementById('passwordi');
+                var mbiemri = document.getElementById('mbiemri');
+                var emri = document.getElementById('emri');
+
+                if ( myTextField.value != "" && password.value != "" && mbiemri.value != "" && emri.value != "")
+                    alert("Kerkesa u dergua! ")
+                else
+                    alert("Ju lutem plotesoni të dhënat!")
+   
+         }
+        
+            $("document").ready(function(){
+                $("button").click(function(){
+            
+        $(".alert").fadeOut(2000);
+                    alert("Eshte duke u fshehur!")
+                });
+            });
+     
+       
+            </script>
+            
+        <script>
+            $("document").ready(function(){
+           
+     $("button").click(function(){
+                    $(".alert").fadeOut(2000);
+                  
+  alert("Eshte duke u fshehur!")
+                });
+            });
+            </script>
+        <div class="alert" align="center">
+          
+  <button style="cursor: pointer; float: right; margin:0px; padding:3px; border:1px solid white;"><strong>X</strong></button>
+           
+ <p>20% zbritje ne te gjitha fluturimet duke perdorur kodin : AirKosova2018</p>
+        </div>
+              
+      <footer style="padding:8px;font-size:15px;font-weight:bold;text-align:center;background:Darkmagenta;color:white;font-family:"helvetica neue", sans-serif;letter-spacing:1px;">
+               
+    	<p>Shperndajeni faqen tone:</p>
+        
+                <a href="mailto:etnik.g8@gmail.com"><img src="Images/email_32.png" alt="Dergojani dikujt ne Email"/></a>
+
+                        <a href="https://www.facebook.com/"><img src="Images/facebook_32.png" alt="Shperndajeni ne Facebook"/></a>
+  
+                      <a href="https://www.twitter.com/"><img src="Images/twitter_32.png" alt="Shperndajeni ne Twitter"/></a>
+               
+         <a href="https://www.rss.com/"><img src="Images/rss_32.png" alt="RSS"/></a>
+                      
+  <a href="https://www.flickr.com/"><img src="Images/flickr_32.png" alt="Shperndajeni ne Flickr"/></a>
+	
+	<p>Te gjitha te drejtat e rezervuara - AIRKOSOVA</p>
+                   </footer>
+               
+    
+                   
+</body>
+
+<!-- Body mbaron ketu -->
+
+</html>
